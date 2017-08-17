@@ -31,12 +31,12 @@ function fetchComponentData(renderProps, store) {
       component = component.WrappedComponent;
     }
     if (component.fetchData) {
-      const { query, params, history } = renderProps;
+      const { location, params, history } = renderProps;
       return (
         component
           .fetchData({
             dispatch: store.dispatch,
-            query,
+            query: location.query,
             params,
             history
           })
